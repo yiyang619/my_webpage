@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>综合示例页面</title>
+    <title>研测过程效能分析报告</title>
     <style>
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
             line-height: 1.6;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             color: #333;
@@ -19,35 +19,20 @@
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
         }
-        h2 {
-            color: #2980b9;
-            margin-top: 30px;
-        }
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .image-caption {
-            font-style: italic;
-            color: #7f8c8d;
-            margin-top: 5px;
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         th, td {
-            padding: 12px 15px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -61,111 +46,248 @@
         tr:hover {
             background-color: #e3f2fd;
         }
-        .text-section {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-left: 4px solid #3498db;
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
             margin: 20px 0;
+        }
+        .image-item {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .conclusion {
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+        .critical {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        .upload-area {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>综合示例页面</h1>
+    <h1>研测过程效能分析报告</h1>
 
-    <section>
-        <h2>1. 图片插入示例</h2>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/600x400" alt="示例图片">
-            <div class="image-caption">图1: 这是一个示例图片的说明文字</div>
+    <div class="section">
+        <h2>1. 研测过程重要指标</h2>
+        <div id="data-table-container">
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>指标名</th>
+                        <th>标准值</th>
+                        <th>翻译机</th>
+                        <th>录音笔</th>
+                        <th>总体</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- 数据将通过JavaScript动态加载 -->
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <p>在HTML中，我们使用&lt;img&gt;标签来插入图片。主要属性包括：</p>
-        <ul>
-            <li><strong>src</strong>: 指定图片的路径或URL</li>
-            <li><strong>alt</strong>: 为图片提供替代文本，对可访问性很重要</li>
-            <li><strong>width</strong>和<strong>height</strong>: 可以设置图片的显示尺寸</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>2. 表格创建示例</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>序号</th>
-                    <th>项目名称</th>
-                    <th>描述</th>
-                    <th>数量</th>
-                    <th>单价</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>HTML教程</td>
-                    <td>基础HTML学习资料</td>
-                    <td>2</td>
-                    <td>¥50.00</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>CSS指南</td>
-                    <td>样式设计参考手册</td>
-                    <td>1</td>
-                    <td>¥75.00</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>JavaScript高级编程</td>
-                    <td>深入理解JavaScript</td>
-                    <td>3</td>
-                    <td>¥120.00</td>
-                </tr>
-                <tr>
-                    <td colspan="4" style="text-align: right;"><strong>总计：</strong></td>
-                    <td><strong>¥485.00</strong></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="text-section">
-            <p>HTML表格使用&lt;table&gt;标签创建，包含以下主要元素：</p>
-            <ul>
-                <li>&lt;thead&gt;: 定义表格的标题部分</li>
-                <li>&lt;tbody&gt;: 定义表格的主体内容</li>
-                <li>&lt;tr&gt;: 定义表格行</li>
-                <li>&lt;th&gt;: 定义表头单元格</li>
-                <li>&lt;td&gt;: 定义标准单元格</li>
-            </ul>
-            <p>可以使用<em>colspan</em>和<em>rowspan</em>属性来合并单元格。</p>
+    <div class="section">
+        <h2>2. 研测过程指标结论</h2>
+        <div id="analysis-conclusion" class="conclusion">
+            <!-- 分析结论将通过JavaScript动态生成 -->
         </div>
-    </section>
+    </div>
 
-    <section>
-        <h2>3. 文字说明示例</h2>
-
-        <div class="text-section">
-            <h3>HTML基础介绍</h3>
-            <p>HTML（超文本标记语言）是构建网页的标准标记语言。它描述了网页的结构，由一系列元素组成，这些元素告诉浏览器如何显示内容。</p>
-            <p>HTML元素通过标签表示，通常成对出现，如&lt;p&gt;和&lt;/p&gt;。标签可以包含属性，提供有关元素的附加信息。</p>
+    <div class="section">
+        <h2>3. 研测过程缺陷分布</h2>
+        <div class="upload-area" id="image-upload-area">
+            <p>点击或拖拽本地图片到此处上传</p>
+            <input type="file" id="image-input" accept="image/*" multiple style="display: none;">
         </div>
-
-        <div class="text-section">
-            <h3>网页设计原则</h3>
-            <p>良好的网页设计应考虑以下原则：</p>
-            <ol>
-                <li><strong>可用性</strong>: 确保所有用户都能轻松使用网站</li>
-                <li><strong>响应式设计</strong>: 适配不同设备屏幕尺寸</li>
-                <li><strong>视觉层次</strong>: 通过排版和布局引导用户注意力</li>
-                <li><strong>一致性</strong>: 保持整个网站的设计风格统一</li>
-                <li><strong>加载速度</strong>: 优化资源确保快速加载</li>
-            </ol>
+        <div class="image-container" id="image-container">
+            <!-- 图片将通过JavaScript动态加载 -->
         </div>
-    </section>
+    </div>
 
-    <footer style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #ddd;">
-        <p>© 2023 示例页面. 保留所有权利.</p>
-    </footer>
+    <script>
+        // 从JSON文件加载数据的函数
+        function loadDataFromJson() {
+            fetch('data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    renderTable(data);
+<!--                    generateAnalysis(data);-->
+                })
+                .catch(error => {
+                    console.error('加载数据失败:', error);
+                    document.getElementById('table-body').innerHTML = `
+                        <tr>
+                            <td colspan="5" class="error-message">
+                                加载数据失败: ${error.message}<br>
+                                请确保data.json文件存在且格式正确
+                            </td>
+                        </tr>`;
+                    document.getElementById('analysis-conclusion').innerHTML = `
+                        <p class="error-message">无法生成分析报告: 数据加载失败</p>`;
+                });
+        }
+
+        // 渲染表格
+        function renderTable(data) {
+            const tableBody = document.getElementById('table-body');
+            tableBody.innerHTML = '';
+
+            if (!data || !data.data) {
+                throw new Error("JSON数据格式不正确，缺少data字段");
+            }
+
+            data.data.forEach(item => {
+<!--                if (!item.indicator || !item.standard || item.FYJ === undefined || item.LYB === undefined || item.LYB === total) {-->
+<!--                    console.warn("数据项缺少必要字段:", item);-->
+<!--                    return;-->
+<!--                }-->
+
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${item.indicator}</td>
+                    <td>${item.standard}</td>
+                    <td>${item.FYJ}</td>
+                    <td>${item.LYB}</td>
+                    <td>${item.total}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 生成分析结论
+        function generateAnalysis(data) {
+            const conclusionDiv = document.getElementById('analysis-conclusion');
+            let warningCount = 0;
+            let criticalCount = 0;
+
+            data.data.forEach(item => {
+                if (item.value > item.threshold) {
+                    criticalCount++;
+                } else if (item.value > item.threshold * 0.9) {
+                    warningCount++;
+                }
+            });
+
+            let conclusion = '';
+            if (criticalCount > 0) {
+                conclusionDiv.className = 'conclusion critical';
+                conclusion = `<strong>警告：</strong>有 ${criticalCount} 项数据超出安全阈值，需要立即处理！`;
+            } else if (warningCount > 0) {
+                conclusionDiv.className = 'conclusion warning';
+                conclusion = `<strong>注意：</strong>有 ${warningCount} 项数据接近阈值，建议密切关注。`;
+            } else {
+                conclusionDiv.className = 'conclusion';
+                conclusion = '<strong>良好：</strong>所有数据均在正常范围内，系统运行良好。';
+            }
+
+            // 添加详细分析
+            conclusion += '<ul>';
+            data.data.forEach(item => {
+                const percentage = (item.value / item.threshold * 100).toFixed(1);
+                const status = item.value > item.threshold ? '❌ 超出' :
+                              (item.value > item.threshold * 0.9 ? '⚠️ 接近' : '✅ 正常');
+                conclusion += `<li>${status} ${item.name}: ${item.value}${item.unit || ''} (阈值的 ${percentage}%)</li>`;
+            });
+            conclusion += '</ul>';
+
+            conclusionDiv.innerHTML = conclusion;
+        }
+
+        // 图片上传处理
+        document.getElementById('image-upload-area').addEventListener('click', () => {
+            document.getElementById('image-input').click();
+        });
+
+        document.getElementById('image-input').addEventListener('change', (event) => {
+            const files = event.target.files;
+            const imageContainer = document.getElementById('image-container');
+
+            // 清空容器但保留前3个示例图片（如果有）
+            const existingImages = imageContainer.querySelectorAll('.image-item');
+            if (existingImages.length <= 3) {
+                imageContainer.innerHTML = '';
+            } else {
+                while (imageContainer.children.length > 3) {
+                    imageContainer.removeChild(imageContainer.lastChild);
+                }
+            }
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (!file.type.match('image.*')) continue;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const imgDiv = document.createElement('div');
+                    imgDiv.className = 'image-item';
+                    imgDiv.innerHTML = `
+                        <img src="${e.target.result}" alt="${file.name}">
+                        <p>${file.name}</p>
+                    `;
+                    imageContainer.appendChild(imgDiv);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // 拖放功能
+        const uploadArea = document.getElementById('image-upload-area');
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#3498db';
+            uploadArea.style.backgroundColor = '#f0f8ff';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#ccc';
+            uploadArea.style.backgroundColor = '';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#ccc';
+            uploadArea.style.backgroundColor = '';
+
+            document.getElementById('image-input').files = e.dataTransfer.files;
+            const event = new Event('change');
+            document.getElementById('image-input').dispatchEvent(event);
+        });
+
+        // 页面加载时初始化
+        window.onload = loadDataFromJson;
+    </script>
 </body>
 </html>

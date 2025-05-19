@@ -1,0 +1,16 @@
+{
+    "data": [
+        {"indicator": "累计缺陷数", "standard": "无", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "新增缺陷总数", "standard": "无", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "新增缺陷关闭率", "standard": "无", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "冒烟测试成功率", "standard": "95%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "缺陷验证一次通过率", "standard": "90%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "低级缺陷率", "standard": "10%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "严重缺陷率", "standard": "10%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "缺陷逃逸率", "standard": "3%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "冒烟自动化率", "standard": "50%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "回归自动化率", "standard": "60%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "功能自动化率", "standard": "10%", "FYJ": "", "LYB": "", "total": ""},
+        {"indicator": "均版本测试周期(天)", "standard": "3day", "FYJ": "", "LYB": "", "total": ""}
+    ]
+}
