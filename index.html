@@ -121,12 +121,15 @@
 
     <div class="section">
         <h2>3. 研测过程缺陷分布</h2>
-        <div class="upload-area" id="image-upload-area">
-            <p>点击或拖拽本地图片到此处上传</p>
-            <input type="file" id="image-input" accept="image/*" multiple style="display: none;">
-        </div>
         <div class="image-container" id="image-container">
-            <!-- 图片将通过JavaScript动态加载 -->
+            <div class="image-item">
+                <img src="pictrues/图片1.png" alt="示例图片1">
+                <p>示例图片1</p>
+            </div>
+            <div class="image-item">
+                <img src="pictrues/图片2.png" alt="示例图片2">
+                <p>示例图片2</p>
+            </div>
         </div>
     </div>
 
@@ -227,64 +230,64 @@
         }
 
         // 图片上传处理
-        document.getElementById('image-upload-area').addEventListener('click', () => {
-            document.getElementById('image-input').click();
-        });
+<!--        document.getElementById('image-upload-area').addEventListener('click', () => {-->
+<!--            document.getElementById('image-input').click();-->
+<!--        });-->
 
-        document.getElementById('image-input').addEventListener('change', (event) => {
-            const files = event.target.files;
-            const imageContainer = document.getElementById('image-container');
+<!--        document.getElementById('image-input').addEventListener('change', (event) => {-->
+<!--            const files = event.target.files;-->
+<!--            const imageContainer = document.getElementById('image-container');-->
 
-            // 清空容器但保留前3个示例图片（如果有）
-            const existingImages = imageContainer.querySelectorAll('.image-item');
-            if (existingImages.length <= 3) {
-                imageContainer.innerHTML = '';
-            } else {
-                while (imageContainer.children.length > 3) {
-                    imageContainer.removeChild(imageContainer.lastChild);
-                }
-            }
+<!--            // 清空容器但保留前3个示例图片（如果有）-->
+<!--            const existingImages = imageContainer.querySelectorAll('.image-item');-->
+<!--            if (existingImages.length <= 3) {-->
+<!--                imageContainer.innerHTML = '';-->
+<!--            } else {-->
+<!--                while (imageContainer.children.length > 3) {-->
+<!--                    imageContainer.removeChild(imageContainer.lastChild);-->
+<!--                }-->
+<!--            }-->
 
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                if (!file.type.match('image.*')) continue;
+<!--            for (let i = 0; i < files.length; i++) {-->
+<!--                const file = files[i];-->
+<!--                if (!file.type.match('image.*')) continue;-->
 
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const imgDiv = document.createElement('div');
-                    imgDiv.className = 'image-item';
-                    imgDiv.innerHTML = `
-                        <img src="${e.target.result}" alt="${file.name}">
-                        <p>${file.name}</p>
-                    `;
-                    imageContainer.appendChild(imgDiv);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+<!--                const reader = new FileReader();-->
+<!--                reader.onload = (e) => {-->
+<!--                    const imgDiv = document.createElement('div');-->
+<!--                    imgDiv.className = 'image-item';-->
+<!--                    imgDiv.innerHTML = `-->
+<!--                        <img src="${e.target.result}" alt="${file.name}">-->
+<!--                        <p>${file.name}</p>-->
+<!--                    `;-->
+<!--                    imageContainer.appendChild(imgDiv);-->
+<!--                };-->
+<!--                reader.readAsDataURL(file);-->
+<!--            }-->
+<!--        });-->
 
-        // 拖放功能
-        const uploadArea = document.getElementById('image-upload-area');
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#3498db';
-            uploadArea.style.backgroundColor = '#f0f8ff';
-        });
+<!--        // 拖放功能-->
+<!--        const uploadArea = document.getElementById('image-upload-area');-->
+<!--        uploadArea.addEventListener('dragover', (e) => {-->
+<!--            e.preventDefault();-->
+<!--            uploadArea.style.borderColor = '#3498db';-->
+<!--            uploadArea.style.backgroundColor = '#f0f8ff';-->
+<!--        });-->
 
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.style.borderColor = '#ccc';
-            uploadArea.style.backgroundColor = '';
-        });
+<!--        uploadArea.addEventListener('dragleave', () => {-->
+<!--            uploadArea.style.borderColor = '#ccc';-->
+<!--            uploadArea.style.backgroundColor = '';-->
+<!--        });-->
 
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#ccc';
-            uploadArea.style.backgroundColor = '';
+<!--        uploadArea.addEventListener('drop', (e) => {-->
+<!--            e.preventDefault();-->
+<!--            uploadArea.style.borderColor = '#ccc';-->
+<!--            uploadArea.style.backgroundColor = '';-->
 
-            document.getElementById('image-input').files = e.dataTransfer.files;
-            const event = new Event('change');
-            document.getElementById('image-input').dispatchEvent(event);
-        });
+<!--            document.getElementById('image-input').files = e.dataTransfer.files;-->
+<!--            const event = new Event('change');-->
+<!--            document.getElementById('image-input').dispatchEvent(event);-->
+<!--        });-->
 
         // 页面加载时初始化
         window.onload = loadDataFromJson;
