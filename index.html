@@ -168,10 +168,10 @@
             }
 
             data.data.forEach(item => {
-<!--                if (!item.indicator || !item.standard || item.FYJ === undefined || item.LYB === undefined || item.LYB === total) {-->
-<!--                    console.warn("数据项缺少必要字段:", item);-->
-<!--                    return;-->
-<!--                }-->
+                if (!item.indicator || !item.standard || item.FYJ === undefined || item.LYB === undefined || item.LYB === total) {
+                    console.warn("数据项缺少必要字段:", item);
+                    return;
+                }
 
                 const row = document.createElement('tr');
 
