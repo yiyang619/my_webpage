@@ -168,7 +168,7 @@
             }
 
             data.data.forEach(item => {
-                if (!item.indicator || !item.standard || item.FYJ === undefined || item.LYB === undefined || item.LYB === total) {
+                if (!item.indicator || !item.standard || item.FYJ === undefined || item.LYB === undefined || item.total === undefined) {
                     console.warn("数据项缺少必要字段:", item);
                     return;
                 }
